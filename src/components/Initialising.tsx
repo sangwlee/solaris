@@ -9,13 +9,15 @@ import {
 
 import { goAuth, goHome } from '../navigation'
 import { USER_KEY } from '../util'
-import { fetchStudents, fetchTeachers } from '../reducers'
+import { fetchStudents, fetchTeachers, fetchAllTeachers, fetchAllStudents } from '../reducers'
 import {connect} from 'react-redux';
 import Home from './Home'
 
 interface props {
   fetchStudents: typeof fetchStudents;
   fetchTeachers: typeof fetchTeachers;
+  fetchAllTeachers: typeof fetchAllTeachers;
+  fetchAllStudents: typeof fetchAllStudents;
 }
 
 interface state {
@@ -25,7 +27,6 @@ interface state {
 
 class Initialising extends React.Component<props, state> {
   async componentDidMount() {
-    // await AsyncStorage.removeItem(USER_KEY)
     try {
       const user = await AsyncStorage.getItem(USER_KEY)
       console.log('user: ', user)
@@ -36,7 +37,9 @@ class Initialising extends React.Component<props, state> {
 
       await Promise.all([
         await this.props.fetchStudents(id),
-        await this.props.fetchTeachers(id)
+        await this.props.fetchTeachers(id),
+        await this.props.fetchAllTeachers(),
+        await this.props.fetchAllStudents(),
       ])
 
       return goHome()
@@ -71,5 +74,7 @@ export default connect(
   dispatch => ({
     fetchStudents: fetchStudents(dispatch),
     fetchTeachers: fetchTeachers(dispatch),
+    fetchAllTeachers: fetchAllTeachers(dispatch),
+    fetchAllStudents: fetchAllStudents(dispatch),
   })
 )(Initialising)

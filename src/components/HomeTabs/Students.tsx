@@ -6,25 +6,28 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import { goAuth, goHome } from '../navigation'
-import { USER_KEY } from '../util'
-import { connect } from 'react-redux'
+import { goAuth, goHome } from '../../navigation'
+import { USER_KEY } from '../../util'
 import Search from './Search'
+import { connect } from 'react-redux'
+import Row from './Row'
 
 interface props {
-  teachers: object[],
+  students: object[],
 }
 
 interface state {
 
 }
 
-class Teachers extends React.Component<props, state> {
+class Students extends React.Component<props, state> {
   render() {
     return (
       <View style={styles.container}>
-        <Search/>
-        <Text style={styles.welcome}>{JSON.stringify(this.props.teachers)}</Text>
+        <Search fromStudents />
+        {
+          this.props.students.map(user => <Row user={user}/>)
+        }
       </View>
     )
   }
@@ -43,7 +46,7 @@ const styles = StyleSheet.create({
 
 export default connect(
   state => ({
-    teachers: state.teachers,
+    students: state.students,
   }),
   null
-)(Teachers)
+)(Students)

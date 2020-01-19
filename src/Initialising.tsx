@@ -1,4 +1,3 @@
-// Initializing.js
 import React from 'react'
 import {
   View,
@@ -7,25 +6,21 @@ import {
   AsyncStorage
 } from 'react-native'
 
-// import { goToAuth, goHome } from './navigation'
+import { goAuth, goHome } from './navigation'
 
-// import { USER_KEY } from './config'
+import { USER_KEY } from './config'
 
 export default class Initialising extends React.Component {
-  // async componentDidMount() {
-  //   try {
-  //     const user = await AsyncStorage.getItem(USER_KEY)
-  //     console.log('user: ', user)
-  //     if (user) {
-  //       goHome()
-  //     } else {
-  //       goToAuth()
-  //     }
-  //   } catch (err) {
-  //     console.log('error: ', err)
-  //     goToAuth()
-  //   }
-  // }
+  async componentDidMount() {
+    try {
+      const user = await AsyncStorage.getItem(USER_KEY)
+      console.log('user: ', user)
+      user ? goHome() : goAuth()
+    } catch (err) {
+      console.log('error: ', err)
+      goAuth()
+    }
+  }
 
   render() {
     return (

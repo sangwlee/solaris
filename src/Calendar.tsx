@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 import { goAuth, goHome } from '../navigation'
-import { USER_KEY } from '../config'
+import { USER_KEY } from '../util'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
 export default class CalendarTab extends React.Component {

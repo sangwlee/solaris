@@ -10,8 +10,7 @@ import {
 } from 'react-native'
 
 import { goHome } from './navigation'
-import { USER_KEY } from './config'
-import { request } from './request'
+import { USER_KEY, request } from './util'
 
 export default class SignIn extends React.Component {
   state = {

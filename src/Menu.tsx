@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 import { goAuth, goHome } from './navigation'
-import { USER_KEY } from './config'
+import { USER_KEY } from './util'
 
 export default class Menu extends React.Component {
   render() {

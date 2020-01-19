@@ -7,9 +7,8 @@ import {
   AsyncStorage
 } from 'react-native'
 import { goAuth } from './navigation'
-import {Navigation} from 'react-native-navigation';
-
-import { USER_KEY } from './config'
+import { Navigation } from 'react-native-navigation';
+import { USER_KEY } from './util'
 
 export default class Home extends React.Component{
 

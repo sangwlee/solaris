@@ -8,9 +8,8 @@ import {
   Alert,
 } from 'react-native'
 
-import { USER_KEY } from './config'
+import { USER_KEY } from './util'
 import { goHome } from './navigation'
-import { request } from './request'
 
 export default class SignUp extends React.Component {
   state = {

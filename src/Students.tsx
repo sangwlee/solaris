@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 import { goAuth, goHome } from '../navigation'
-import { USER_KEY } from '../config'
+import { USER_KEY } from '../util'
 import Search from './Search'
 
 export default class Students extends React.Component {

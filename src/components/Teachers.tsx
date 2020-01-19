@@ -8,14 +8,23 @@ import {
 
 import { goAuth, goHome } from '../navigation'
 import { USER_KEY } from '../util'
+import { connect } from 'react-redux'
 import Search from './Search'
 
-export default class Teachers extends React.Component {
+interface props {
+  teachers: object[],
+}
+
+interface state {
+
+}
+
+class Teachers extends React.Component<props, state> {
   render() {
     return (
       <View style={styles.container}>
         <Search/>
-        <Text style={styles.welcome}>Teachers</Text>
+        <Text style={styles.welcome}>{JSON.stringify(this.props.teachers)}</Text>
       </View>
     )
   }
@@ -31,3 +40,10 @@ const styles = StyleSheet.create({
     marginTop: 35,
   }
 })
+
+export default connect(
+  state => ({
+    teachers: state.teachers,
+  }),
+  null
+)(Teachers)

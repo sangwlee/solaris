@@ -10,7 +10,15 @@ import { goAuth, goHome } from '../navigation'
 import { USER_KEY } from '../util'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
-export default class CalendarTab extends React.Component {
+interface props {
+
+}
+
+interface state {
+  
+}
+
+export default class CalendarTab extends React.Component<props, state> {
   render() {
     return (
       <View style={styles.container}>
@@ -33,7 +41,7 @@ export default class CalendarTab extends React.Component {
           // Hide month navigation arrows. Default = false
           hideArrows={true}
           // Replace default arrows with custom ones (direction can be 'left' or 'right')
-          renderArrow={(direction) => (<Arrow />)}
+          renderArrow={(direction) => ( <View/> ) }
           // Do not show days of other months in month page. Default = false
           hideExtraDays={true}
           // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out

@@ -8,8 +8,8 @@ import {
   Alert,
 } from 'react-native'
 
-import { USER_KEY } from './util'
-import { goHome } from './navigation'
+import { USER_KEY, request } from '../util'
+import { goHome } from '../navigation'
 
 export default class SignUp extends React.Component {
   state = {
@@ -22,7 +22,7 @@ export default class SignUp extends React.Component {
     const { username, password, email, phone_number } = this.state
     try {
       const res = await request('/users', { method: 'POST', body: { username, password }})
-      await AsyncStorage.set(USER_KEY, JSON.stringify(res))
+      await AsyncStorage.setItem(USER_KEY, JSON.stringify(res))
       goHome()
     } catch (err) {
       console.log('error signing up: ', err)

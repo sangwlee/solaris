@@ -4,22 +4,36 @@ import {
   Text,
   Button,
   StyleSheet,
-  AsyncStorage
+  AsyncStorage,
+  Alert
 } from 'react-native'
-import { goAuth } from './navigation'
+// import { goAuth } from '../navigation'
 import { Navigation } from 'react-native-navigation';
-import { USER_KEY } from './util'
+import { USER_KEY } from '../util'
 
-export default class Home extends React.Component{
+interface props {
+  componentId: string;
+}
 
+interface state {
+
+}
+
+
+export default class Home extends React.Component<props, state> {
   logout = async () => {
     try {
       await AsyncStorage.removeItem(USER_KEY)
-      goAuth()
+      // goAuth()
     } catch (err) {
       console.log('error signing out...: ', err)
     }
   }
+
+  async componentDidMount() {
+
+  }
+
   render() {
     return (
       <View style={styles.container}>

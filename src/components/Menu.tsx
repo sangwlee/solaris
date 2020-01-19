@@ -6,14 +6,13 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import { goAuth, goHome } from './navigation'
-import { USER_KEY } from './util'
+import { goAuth, goHome } from '../navigation'
+import { USER_KEY } from '../util'
 
 export default class Menu extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Search/>
         <Text style={styles.welcome}>Menu</Text>
       </View>
     )

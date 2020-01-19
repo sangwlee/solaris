@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import {
-  studentsReducer as students
+  studentsReducer as students,
+  teachersReducer as teachers,
 } from '../reducers'
 
 export const rootReducer = combineReducers({
-  students
+  students,
+  teachers,
 });

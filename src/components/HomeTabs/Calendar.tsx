@@ -6,8 +6,8 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import { goAuth, goHome } from '../navigation'
-import { USER_KEY } from '../util'
+import { goAuth, goHome } from '../../navigation'
+import { USER_KEY } from '../../util'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
 interface props {

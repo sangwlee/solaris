@@ -13,6 +13,7 @@ import { USER_KEY, searchFilter } from '../../util'
 import { connect } from 'react-redux'
 import Row from './Row'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { HamburgerSvg } from '../../../assets/svg'
 
 interface props {
   allTeachers: object[];
@@ -66,6 +67,7 @@ class Search extends React.Component<props,state> {
           onFocus={() => this.setState({ isActive: true })}
           onBlur={() => { this.setState({ isActive: false, searchStr: '' })}}
         />
+        {/* { <HamburgerSvg/> } */}
         { this.renderAllTeachers() }
       </View>
     )
